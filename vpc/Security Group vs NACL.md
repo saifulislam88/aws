@@ -36,6 +36,7 @@ Network ACL (NACL) is a subnet-level firewall that controls traffic in and out o
 Block all traffic from a known malicious IP across the entire subnet.
 
 ---
+![{168F80F4-2080-43A7-AFD6-0EE4B3E1E846}](https://github.com/user-attachments/assets/4479b319-24fe-4722-b478-625d13eecd9c)
 
 ### 🔄 Side-by-Side Comparison: NACL vs Security Group
 
