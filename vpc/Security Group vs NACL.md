@@ -1,43 +1,43 @@
 
-### 🔐 AWS Network Security: NACL vs Security Group (SG)
+## 🔐 AWS Network Security: NACL vs Security Group (SG)
 
 In AWS, both Network ACLs (NACLs) and Security Groups (SGs) are used to control traffic flow in and out of your resources. However, they differ in scope, behavior, and use cases.
 
 ---
 
-## 📌 What is a Security Group (SG)?
+### 📌 What is a Security Group (SG)?
 
 Security Group (SG) is a virtual firewall for EC2 instances to control inbound and outbound traffic at the instance level.
 
-### Key Characteristics:
+#### Key Characteristics:
 - **Stateful**: If you allow inbound traffic, the return traffic is automatically allowed.
 - **Attached to**: EC2 instances or ENIs (Elastic Network Interfaces).
 - **Rules**: Only allow rules are supported (no deny).
 - **Default behavior**: Denies all traffic unless explicitly allowed.
 - **Granularity**: Can allow specific IPs, ports, and protocols.
 
-### Example Use Case:
+#### Example Use Case:
 Allow HTTP (port 80) and SSH (port 22) from specific IP ranges to a web server.
 
 ---
 
-## 📘 What is a Network ACL (NACL)?
+### 📘 What is a Network ACL (NACL)?
 
 Network ACL (NACL) is a subnet-level firewall that controls traffic in and out of entire subnets within a VPC.
 
-### Key Characteristics:
+#### Key Characteristics:
 - **Stateless**: Both inbound and outbound rules must be explicitly defined.
 - **Attached to**: VPC subnets.
 - **Rules**: Supports both allow and deny rules.
 - **Default behavior**: Default NACL allows all traffic; custom NACL denies all unless specified.
 - **Rule evaluation**: Rules are evaluated in order by rule number (lowest to highest).
 
-### Example Use Case:
+#### Example Use Case:
 Block all traffic from a known malicious IP across the entire subnet.
 
 ---
 
-## 🔄 Side-by-Side Comparison: NACL vs Security Group
+### 🔄 Side-by-Side Comparison: NACL vs Security Group
 
 | Feature               | Security Group (SG)         | Network ACL (NACL)           |
 |-----------------------|------------------------------|-------------------------------|
@@ -51,77 +51,54 @@ Block all traffic from a known malicious IP across the entire subnet.
 
 ---
 
-## 🧠 When to Use Which?
 
-| Scenario                              | Use SG | Use NACL |
-|---------------------------------------|--------|----------|
-| Fine-grained access to instances      | ✅     | ❌       |
-| Broad rules for entire subnet         | ❌     | ✅       |
-| Need to deny specific IPs             | ❌     | ✅       |
-| Stateful filtering (auto return traffic) | ✅     | ❌       |
-
----
-
-## ✅ Best Practice
+### ✅ Best Practice
 
 - Use **Security Groups** as your **primary defense** at the instance level.
 - Use **NACLs** for an **extra layer** of subnet-level control, especially for **deny rules or broader network-level restrictions**.
 
 ---
 
-# 🔄 Stateful vs Stateless in AWS Networking
+## 🔄 Stateful vs Stateless in AWS Networking
 
 These terms define how a firewall or filter handles traffic sessions and responses:
 
 ---
 
-## 🧠 What Does "Stateful" Mean?
+### 🧠 What Does "Stateful" Mean?
 
 **Stateful** means the firewall remembers the state of the connection. Once a connection is allowed in one direction, the return traffic is **automatically allowed**.
 
-### 🔐 Example (Security Group):
+#### 🔐 Example (Security Group):
 If you allow inbound SSH (port 22) from IP 1.2.3.4, AWS automatically allows the outbound response.
 
 ✅ You do not need to create an outbound rule for return traffic.
 
-### ✅ Benefits:
+#### ✅ Benefits:
 - Simpler configuration – only define one side of the rule.
 - Automatic handling of replies (e.g., TCP handshakes, web responses).
 - Better suited for EC2 and application-level access.
 
 ---
 
-## 🧠 What Does "Stateless" Mean?
+### 🧠 What Does "Stateless" Mean?
 
 **Stateless** means the firewall does not track traffic sessions. You must explicitly allow **both inbound and outbound** traffic, even for responses.
 
-### 🔐 Example (NACL):
+#### 🔐 Example (NACL):
 If you allow inbound HTTP (port 80) traffic from the internet, you must also allow outbound traffic (like port 1024-65535) for the return response.
 
 ❌ Otherwise, the reply is blocked.
 
-### ⚠️ Implications:
+#### ⚠️ Implications:
 - More complex to configure properly.
 - Must mirror rules in both directions.
 - Suitable for broad subnet-level restrictions or blacklisting.
 
 ---
 
-## 🔍 Classification Table: Stateful vs Stateless
 
-| Feature                         | Stateful (Security Group)  | Stateless (Network ACL)      |
-|---------------------------------|-----------------------------|-------------------------------|
-| Remembers connection state      | ✅ Yes                      | ❌ No                         |
-| Return traffic auto-allowed     | ✅ Yes                      | ❌ No – must allow manually  |
-| Directionality                  | Only define one side        | Must define both directions  |
-| Granularity                     | Instance-level (ENIs)       | Subnet-level                 |
-| Use case                        | Secure individual EC2 instances | Restrict or filter entire subnets |
-| Rules complexity                | Simple                      | More complex                 |
-| Example Services                | Security Groups             | Network ACLs                 |
-
----
-
-## 🎯 Real-World Example
+### 🎯 Real-World Example
 
 **Use Case**: A web server running on EC2
 
@@ -133,7 +110,7 @@ If you allow inbound HTTP (port 80) traffic from the internet, you must also all
 
 ---
 
-## 📝 Summary
+### 📝 Summary
 
 | Term       | Means...                        | In AWS…                     | Best For...                       |
 |------------|----------------------------------|-----------------------------|-----------------------------------|
