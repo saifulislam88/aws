@@ -3,7 +3,7 @@
 
 AWS Systems Manager (SSM) is a management service that helps you view, control, and automate operations across your AWS resources securely.
 
-Put simply, SSM lets you:
+Put simply, SSM lets you:\
 ✅ Manage EC2 instances and other resources remotely  
 ✅ Run commands without SSH  
 ✅ Patch and update instances automatically  
