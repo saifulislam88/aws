@@ -44,9 +44,9 @@ You can use SSM to do everything over AWS private network.
 
 Create an IAM role with this policy:
 
-\`\`\`
+```sh
 AmazonSSMManagedInstanceCore
-\`\`\`
+```
 
 Attach the role to your EC2 instance.
 
@@ -58,11 +58,11 @@ Amazon Linux 2 and Ubuntu 20+ usually have SSM Agent preinstalled.
 
 If not, install it:
 
-\`\`\`bash
+```sh
 sudo yum install -y amazon-ssm-agent
 sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
-\`\`\`
+```
 
 ---
 
@@ -93,9 +93,9 @@ You now have a browser-based shell into your instance, without:
 - Targets: Select your instance
 - Command:
 
-\`\`\`bash
+```sh
 sudo yum update -y
-\`\`\`
+```
 
 - Click **Run**
 
