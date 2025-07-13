@@ -1,5 +1,6 @@
 ### 🔹What are the failure points and how can you make it highly available?
 
+```sh
 
           Internet
               |
@@ -15,6 +16,8 @@
      └────────────────────┘
               |
         NAT Gateway (for outbound only)
+
+```
 
 - **NAT Gateway:** Use **multiple NAT Gateways** in different AZs.
 - **ALB:** Ensure it spans **multiple public subnets (AZs)**.
