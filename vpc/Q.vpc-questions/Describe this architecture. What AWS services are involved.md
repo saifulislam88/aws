@@ -1,4 +1,4 @@
-### 🔹 1. Describe this architecture. What AWS services are involved?
+### 🔹Describe this architecture. What AWS services are involved?
 
 
           Internet
