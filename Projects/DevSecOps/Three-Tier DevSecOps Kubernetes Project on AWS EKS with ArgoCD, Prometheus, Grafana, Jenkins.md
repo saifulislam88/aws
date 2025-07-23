@@ -2,3 +2,5 @@ Learn how to deploy a complete three-tier DevSecOps project on AWS EKS! This ste
 
 
 https://www.youtube.com/watch?v=UNF5JdUEfh8&t=1s&ab_channel=CodeWithMuh
+
+https://www.linkedin.com/pulse/deploying-three-tier-devsecops-web-application-aws-eks-rashid-x7f9f/
