@@ -1,4 +1,4 @@
-We can use more secure AWS Systems Manager Session Manager instead of setting up and maintaining a bastion host.
+We can use more secure AWS Systems Manager Session Manager(SSM) instead of setting up and maintaining a bastion host.
 
 ## Session Manager allows you to:
 - Connect to your EC2 instances without any public IP addresses
